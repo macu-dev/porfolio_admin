@@ -42,7 +42,6 @@ export async function POST(request: Request) {
       },
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { ...user } = newUser;
 
     return NextResponse.json(user);
