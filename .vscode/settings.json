@@ -12,5 +12,9 @@
     "source.fixAll.eslint": "explicit",
     "source.fixAll.tslint": "explicit",
     "source.fixAll.stylelint": "explicit"
-  }
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ]
 }
