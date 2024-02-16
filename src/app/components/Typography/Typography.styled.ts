@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const typographyStyled = cva({
+export const typographyStyled = cva(['font-semibold'], {
   variants: {
     size: {
       h1: 'text-4xl',
@@ -14,13 +14,13 @@ export const typographyStyled = cva({
       overline: 'text-xs',
     },
     variant: {
-      primary: 'bg-indigo-500 text-slate-100 hover:opacity-85',
+      primary: 'text-slate-900',
       secondary: 'bg-slate-900 text-slate-100 hover:opacity-85',
       border: 'border bg-transparent text-slate-900 hover:bg-slate-50',
     },
   },
   defaultVariants: {
-    size: 'base',
+    size: 'subtitle1',
     variant: 'primary',
   },
 });
