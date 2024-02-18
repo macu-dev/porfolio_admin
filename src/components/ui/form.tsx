@@ -19,6 +19,7 @@ interface FormProps<T extends FieldValues> {
   autoComplete?: string;
   onSubmit: SubmitHandler<T>;
   methods: UseFormReturn<T>;
+  className?: string;
 }
 
 const Form = <T extends FieldValues>({
@@ -26,11 +27,13 @@ const Form = <T extends FieldValues>({
   onSubmit,
   methods,
   children,
+  className,
 }: React.PropsWithChildren<FormProps<T>>) => {
   return (
     <FormProvider {...methods}>
       <form
         autoComplete={autoComplete}
+        className={cn(className)}
         onSubmit={methods.handleSubmit(onSubmit)}
       >
         {children}

@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html className="h-dvh" lang="es">
       <body className={inter.className + ' h-full'}>
-        <main className="container mx-auto py-2">{children}</main>
+        <main className="container mx-auto h-full py-2">{children}</main>
       </body>
     </html>
   );
