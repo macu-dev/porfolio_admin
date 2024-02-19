@@ -14,9 +14,10 @@ interface TextFieldProps {
   label?: string;
   name: string;
   placeholder?: string;
+  classname?: string;
 }
 
-const Textfield = ({ label, name, placeholder }: TextFieldProps) => {
+const Textfield = ({ label, name, placeholder, classname }: TextFieldProps) => {
   const form = useFormContext();
 
   return (
@@ -24,7 +25,7 @@ const Textfield = ({ label, name, placeholder }: TextFieldProps) => {
       control={form.control}
       name={name}
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={classname}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
             <Input placeholder={placeholder} {...field} />
