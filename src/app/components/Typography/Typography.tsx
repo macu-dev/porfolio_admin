@@ -2,8 +2,8 @@ import { forwardRef } from 'react';
 
 import { cn } from '@/utils/cn';
 
-import { TypographyProps } from './Typography.type';
 import { typographyStyled } from './Typography.styled';
+import { TypographyProps } from './Typography.type';
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
   ({ component = 'p', className, size, ...props }, ref) => {
