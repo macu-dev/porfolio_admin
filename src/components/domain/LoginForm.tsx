@@ -56,7 +56,12 @@ const LoginForm = () => {
           Ingresar
         </Typography>
         <Textfield classname="py-3" label="Usuario" name="user" />
-        <Textfield classname="pb-3" label="Contraseña" name="password" />
+        <Textfield
+          classname="pb-3"
+          label="Contraseña"
+          name="password"
+          type="password"
+        />
         <Button className="mt-3 w-full" type="submit">
           Enviar
         </Button>

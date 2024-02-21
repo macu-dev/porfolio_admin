@@ -15,9 +15,16 @@ interface TextFieldProps {
   name: string;
   placeholder?: string;
   classname?: string;
+  type?: React.HTMLInputTypeAttribute;
 }
 
-const Textfield = ({ label, name, placeholder, classname }: TextFieldProps) => {
+const Textfield = ({
+  label,
+  name,
+  placeholder,
+  classname,
+  type = 'text',
+}: TextFieldProps) => {
   const form = useFormContext();
 
   return (
@@ -28,7 +35,7 @@ const Textfield = ({ label, name, placeholder, classname }: TextFieldProps) => {
         <FormItem className={classname}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input placeholder={placeholder} {...field} />
+            <Input placeholder={placeholder} type={type} {...field} />
           </FormControl>
           <FormMessage />
         </FormItem>
