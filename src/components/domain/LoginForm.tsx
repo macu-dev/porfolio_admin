@@ -3,6 +3,7 @@
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 import { Form } from '@/components/ui/form';
 import { Typography } from '@/app/components/Typography/Typography';
@@ -28,6 +29,7 @@ const formSchema = z.object({
 type formSchema = z.infer<typeof formSchema>;
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const form = useForm<formSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,7 +55,7 @@ const LoginForm = () => {
           component="h1"
           size="h4"
         >
-          Ingresar
+          {t('title')}
         </Typography>
         <Textfield classname="py-3" label="Usuario" name="user" />
         <Textfield
