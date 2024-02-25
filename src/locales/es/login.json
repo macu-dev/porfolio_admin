@@ -1,3 +1,11 @@
 {
-  "title": "Ingresar"
+  "title": "Bienvenido",
+  "user": "Usuario",
+  "password": "Contraseña",
+  "button": "Ingresar",
+  "errors": {
+    "password": "La contraseña es requerida.",
+    "user": "El usuario es requerido.",
+    "email": "Ingrese un email valido."
+  }
 }

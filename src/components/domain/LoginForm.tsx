@@ -14,22 +14,25 @@ import Textfield from '../ui/textfield';
 const seemsLikeEmail = (value: string) =>
   value.includes('@') || /.+\.[a-zA-Z]{2,}$/.test(value);
 
-const formSchema = z.object({
-  user: z
-    .string()
-    .min(2, { message: 'El usuario es requerido' })
-    .refine(
-      (val) =>
-        seemsLikeEmail(val) ? z.string().email().safeParse(val).success : true,
-      { message: 'Ingrese un email valido' },
-    ),
-  password: z.string().min(2, { message: 'La contraseña es requerida' }),
-});
-
-type formSchema = z.infer<typeof formSchema>;
-
 const LoginForm = () => {
   const { t } = useTranslation();
+
+  const formSchema = z.object({
+    user: z
+      .string()
+      .min(2, { message: t('errors.user') })
+      .refine(
+        (val) =>
+          seemsLikeEmail(val)
+            ? z.string().email().safeParse(val).success
+            : true,
+        { message: t('errors.email') },
+      ),
+    password: z.string().min(2, { message: t('errors.password') }),
+  });
+
+  type formSchema = z.infer<typeof formSchema>;
+
   const form = useForm<formSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,15 +60,15 @@ const LoginForm = () => {
         >
           {t('title')}
         </Typography>
-        <Textfield classname="py-3" label="Usuario" name="user" />
+        <Textfield classname="py-3" label={t('user')} name="user" />
         <Textfield
           classname="pb-3"
-          label="Contraseña"
+          label={t('password')}
           name="password"
           type="password"
         />
         <Button className="mt-3 w-full" type="submit">
-          Enviar
+          {t('button')}
         </Button>
       </Form>
     </>
