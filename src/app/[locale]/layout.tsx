@@ -1,12 +1,10 @@
 import type { Metadata } from 'next';
 
-import { Inter } from 'next/font/google';
 import './globals.css';
 import { dir } from 'i18next';
 
 import i18nConfig from '../../../i18nConfig';
-
-const inter = Inter({ subsets: ['latin'] });
+import { noto_sans } from '../fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,8 +23,8 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html className="h-dvh" dir={dir(locale)} lang={locale}>
-      <body className={inter.className + ' h-full'}>{children}</body>
+    <html className="dark h-screen" dir={dir(locale)} lang={locale}>
+      <body className={noto_sans.className + ' h-full'}>{children}</body>
     </html>
   );
 }

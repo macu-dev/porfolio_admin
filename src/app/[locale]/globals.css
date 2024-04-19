@@ -5,6 +5,8 @@
 :root {
   --background-dark: 329 84% 4%;
   --text-color-dark: 329 80% 60%;
+  --background-landing-dark: #000000;
+  --background-landing-gray: #111111;
 }
 
 @layer base {
@@ -71,11 +73,33 @@
   }
 }
 
+@layer components {
+  .bg-gradient-landing {
+    background: var(--background-landing-dark);
+    background: -webkit-linear-gradient(
+      to right,
+      var(--background-landing-dark),
+      var(--background-landing-gray)
+    );
+    background: linear-gradient(
+      to right,
+      var(--background-landing-dark),
+      var(--background-landing-gray)
+    );
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-landing text-foreground;
+  }
+
+  html {
+    background: #00000000;
+    color-scheme: dark;
   }
 }
