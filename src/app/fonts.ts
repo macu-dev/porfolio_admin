@@ -1,4 +1,4 @@
-import { Noto_Sans, Roboto } from 'next/font/google';
+import { Noto_Sans, Roboto, Nunito_Sans } from 'next/font/google';
 
 export const roboto = Roboto({
   subsets: ['latin'],
@@ -7,6 +7,11 @@ export const roboto = Roboto({
 });
 
 export const noto_sans = Noto_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+export const nunito_sans = Nunito_Sans({
   subsets: ['latin'],
   display: 'swap',
 });

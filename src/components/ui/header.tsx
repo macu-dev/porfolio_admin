@@ -30,7 +30,7 @@ const Header = ({ logo }: HeaderProps) => {
     <header
       className={`sticky top-0 bg-transparent  backdrop-blur-sm transition duration-200 ease-in-out ${hasScrolled ? 'border-b border-stone-800' : 'border-transparent'}`}
     >
-      <nav className="border-gray-200 px-8 py-2.5 lg:px-6">
+      <nav className="border-gray-200 px-8 py-3 lg:px-6">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
           <a className="flex items-center" href="https://flowbite.com">
             <Cafe />

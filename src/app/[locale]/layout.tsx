@@ -4,7 +4,7 @@ import './globals.css';
 import { dir } from 'i18next';
 
 import i18nConfig from '../../../i18nConfig';
-import { noto_sans } from '../fonts';
+import { nunito_sans } from '../fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html className="dark h-screen" dir={dir(locale)} lang={locale}>
-      <body className={noto_sans.className + ' h-full'}>{children}</body>
+      <body className={nunito_sans.className + ' h-full'}>{children}</body>
     </html>
   );
 }

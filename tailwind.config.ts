@@ -55,11 +55,16 @@ const config = {
       },
       boxShadow: {
         '3xl': '4px 4px 0 0 hsl(var(--primary-foreground))',
+        aura: '0 0 100px 80px rgba(26, 25, 25, 0.51)',
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      backgroundImage: {
+        'gradient-text':
+          'linear-gradient(to right, #64ea8f, #ebcf51, #9e4bd9, #23c2fb, #49eb7c)',
       },
       keyframes: {
         'accordion-down': {
@@ -70,12 +75,28 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'slide-up-text': {
+          '0%': { opacity: '0', transform: 'translateY(16px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'slide-up-text': 'slide-up-text 1s ease-in-out',
       },
     },
+  },
+  safelist: [
+    'bg-gradient-text',
+    'from-[#47cf73]',
+    'via-[#ffdd40]',
+    'via-[#ae63e4]',
+    'via-[#0ebeff]',
+    'to-[#47cf73]',
+  ],
+  corePlugins: {
+    backgroundImage: true,
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
