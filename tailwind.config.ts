@@ -55,7 +55,7 @@ const config = {
       },
       boxShadow: {
         '3xl': '4px 4px 0 0 hsl(var(--primary-foreground))',
-        aura: '0 0 100px 80px rgba(26, 25, 25, 0.51)',
+        aura: '0 0 400px 150px rgba(255, 251, 251, 0.124)',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -79,11 +79,22 @@ const config = {
           '0%': { opacity: '0', transform: 'translateY(16px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        'open-scale-up-fade': {
+          '0%': {
+            opacity: '0',
+            transform: 'scale(.98) translateY(5px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1) translateY(0)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'slide-up-text': 'slide-up-text 1s ease-in-out',
+        'open-scale-up-fade': 'open-scale-up-fade 1.5s ease-in-out',
       },
     },
   },

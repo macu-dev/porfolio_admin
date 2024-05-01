@@ -21,8 +21,16 @@ export default function Home() {
                 Frontend developer
               </h2>
             </div>
-            <div>
-              <Image alt="" height="500" src="/emoji.png" width="400" />
+            <div className="animate-open-scale-up-fade">
+              <Image
+                alt=""
+                height="500"
+                src="/emoji.png"
+                style={{
+                  maskImage: 'linear-gradient(#bbb2b2 64%, transparent 100%)',
+                }}
+                width="400"
+              />
             </div>
           </div>
         </section>
