@@ -8,22 +8,28 @@ export default function Home() {
     <>
       <Header logo={<p>Macu</p>} />
       <main className="container mx-auto h-full bg-transparent py-2">
-        <section className="h-full px-8">
-          <div className="flex h-full flex-col items-center justify-evenly px-8 md:flex-row md:pb-24">
-            <div className="max-w-screen-sm animate-slide-up-text">
-              <p className="text-default-500 my-2 block w-full max-w-full text-lg font-normal md:w-1/2 lg:text-xl">
+        <section className="h-full px-0 lg:px-8">
+          <div className="flex h-full flex-col items-center  justify-evenly max-[1024px]:justify-center sm:px-8  lg:flex-row">
+            <div className="animate-slide-up-text max-[1023px]:order-2 lg:max-w-screen-sm">
+              <p className="text-default-500 my-2 block w-full max-w-full text-lg font-normal md:w-1/2 min-[768px]:text-[2.1rem] lg:text-xl">
                 Hola, mi nombre es
               </p>
-              <h1 className="inline bg-gradient-text bg-clip-text text-[2.5rem] font-bold tracking-tight text-transparent lg:text-7xl">
+              <h1 className="inline bg-gradient-text bg-clip-text text-[2.5rem] font-bold leading-[1.2] tracking-tight text-transparent min-[768px]:text-[4rem] lg:text-7xl">
                 Maria Claudia <br /> Perez Escalante
               </h1>
-              <h2 className="mt-4 text-[1.5rem] font-semibold lg:text-2xl">
+              <h2 className="mt-3 text-[1.5rem] font-semibold min-[768px]:text-[2rem] lg:text-2xl">
                 Frontend developer
               </h2>
+              <h3 className="my-6 leading-[1.7] text-stone-300 max-[1024px]:my-3  max-[1024px]:text-[1.1rem] min-[768px]:text-[1.6rem] lg:max-w-xl lg:text-lg">
+                Mis amigos me dicen Macu, me especializo en dar vida a
+                interfaces digitales excepcionales. Mi curiosidad me impulsa a
+                perfeccionar cada detalle en mis proyectos.
+              </h3>
             </div>
-            <div className="animate-open-scale-up-fade">
+            <div className="animate-open-scale-up-fade max-[1023px]:order-1">
               <Image
                 alt=""
+                className="max-[400px]:h-[200px] max-[400px]:w-[100%]"
                 height="500"
                 src="/emoji.png"
                 style={{
