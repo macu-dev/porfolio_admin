@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { dir } from 'i18next';
 
+import Header from '@/components/ui/header';
+
 import i18nConfig from '../../../i18nConfig';
 import { nunito_sans } from '../fonts';
 
@@ -24,7 +26,13 @@ export default function RootLayout({
 }) {
   return (
     <html className="dark h-screen" dir={dir(locale)} lang={locale}>
-      <body className={nunito_sans.className + ' h-full'}>{children}</body>
+      <body className={nunito_sans.className + ' h-full'}>
+        <Header logo={<p>Macu</p>} />
+        <div className="flex h-[calc(100vh-54px)] flex-col items-center justify-evenly">
+          {children}
+          <footer>hola</footer>
+        </div>
+      </body>
     </html>
   );
 }
