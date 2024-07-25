@@ -4,9 +4,11 @@ import './globals.css';
 import { dir } from 'i18next';
 
 import Header from '@/components/ui/header';
+import TranslationsProvider from '@/components/domain/TranslationProvider';
 
 import i18nConfig from '../../../i18nConfig';
 import { nunito_sans } from '../fonts';
+import initTranslations from '../i18n';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,22 +19,31 @@ export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { locale },
 }: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  const i18nNamespaces = ['login'];
+  const { resources } = await initTranslations(locale, i18nNamespaces);
+
   return (
     <html className="dark h-screen" dir={dir(locale)} lang={locale}>
-      <body className={nunito_sans.className + ' h-full'}>
-        <Header logo={<p>Macu</p>} />
-        <div className="flex h-[calc(100vh-54px)] flex-col items-center justify-evenly">
-          {children}
-          <footer>hola</footer>
-        </div>
-      </body>
+      <TranslationsProvider
+        locale={locale}
+        namespaces={i18nNamespaces}
+        resources={resources}
+      >
+        <body className={nunito_sans.className + ' h-full'}>
+          <Header logo={<p>Macu</p>} />
+          <div className="flex h-[calc(100vh-54px)] flex-col items-center justify-evenly">
+            {children}
+            <footer>hola</footer>
+          </div>
+        </body>
+      </TranslationsProvider>
     </html>
   );
 }

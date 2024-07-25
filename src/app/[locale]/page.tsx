@@ -3,7 +3,15 @@ import Image from 'next/image';
 import CursorAura from '@/components/domain/CursorAura';
 import SocialLinks from '@/components/domain/SocialLinks';
 
-export default function Home() {
+import initTranslations from '../i18n';
+
+export default async function Home({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const { t } = await initTranslations(locale, ['login']);
+
   return (
     <>
       <main className="container mx-auto bg-transparent py-2">
@@ -12,6 +20,7 @@ export default function Home() {
             <div className="animate-slide-up-text max-[1023px]:order-2 lg:max-w-screen-sm">
               <p className="text-default-500 my-2 block w-full max-w-full text-lg font-normal md:w-1/2 min-[768px]:text-[2.1rem] lg:text-xl">
                 Hola, mi nombre es
+                {t('title')}
               </p>
               <h1 className="inline bg-gradient-text bg-clip-text text-[2.5rem] font-bold leading-[1.2] tracking-tight text-transparent min-[768px]:text-[4rem] lg:text-7xl">
                 Maria Claudia <br /> Perez Escalante
