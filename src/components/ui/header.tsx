@@ -1,14 +1,22 @@
 'use client';
 
 import React, { ReactElement, useEffect, useState } from 'react';
+import Link from 'next/link';
 
-import Cafe from '../icons/Cafe';
+import LanguageChanger from '../domain/LanguajeSelect';
+
+interface LinkHeader {
+  name: string;
+  url: string;
+}
 
 export interface HeaderProps {
   logo: ReactElement;
+  links: LinkHeader[];
+  homeLink?: string;
 }
 
-const Header = ({ logo }: HeaderProps) => {
+const Header = ({ logo, links, homeLink = '/' }: HeaderProps) => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
   useEffect(() => {
@@ -22,7 +30,6 @@ const Header = ({ logo }: HeaderProps) => {
 
     window.addEventListener('scroll', handleScroll);
 
-    // Limpiar el evento al desmontar el componente
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -32,10 +39,9 @@ const Header = ({ logo }: HeaderProps) => {
     >
       <nav className="border-gray-200 px-8 py-3 lg:px-6">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
-          <a className="flex items-center" href="https://flowbite.com">
-            <Cafe />
+          <Link className="flex items-center" href={homeLink}>
             {logo}
-          </a>
+          </Link>
           <div className="flex items-center lg:order-2">
             <button
               aria-controls="mobile-menu-2"
@@ -76,13 +82,23 @@ const Header = ({ logo }: HeaderProps) => {
             id="mobile-menu-2"
           >
             <ul className="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
-              <li>
+              {links?.map((link) => (
+                <Link
+                  className="bg-primary-700 lg:text-primary-700 block rounded py-2 pl-3 pr-4 text-white dark:text-white lg:bg-transparent lg:p-0"
+                  href={link.url}
+                  key={link.name}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <LanguageChanger />
+              {/* <li>
                 <a
                   aria-current="page"
                   className="bg-primary-700 lg:text-primary-700 block rounded py-2 pl-3 pr-4 text-white dark:text-white lg:bg-transparent lg:p-0"
                   href="#"
                 >
-                  Home
+                  Sobre mi
                 </a>
               </li>
               <li>
@@ -124,7 +140,7 @@ const Header = ({ logo }: HeaderProps) => {
                 >
                   Contact
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

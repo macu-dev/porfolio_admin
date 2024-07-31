@@ -4,9 +4,12 @@
 
 :root {
   --background-dark: 329 84% 4%;
-  --text-color-dark: 329 80% 60%;
+  --text-color-dark: #444343;
   --background-landing-dark: #000000;
   --background-landing-gray: #111111;
+  --background-accent: #5c5c5ccc;
+  --ring-background: #adacac;
+  /* --visible-background: #adacac; */
 }
 
 @layer base {
@@ -38,7 +41,7 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
-
+    --visible: var(--visible-background);
     --radius: 0.5rem;
   }
 
@@ -61,7 +64,7 @@
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: var(--background-dark);
+    --accent: var(--background-accent);
     --accent-foreground: var(--text-color-dark);
 
     --destructive: 0 62.8% 30.6%;
@@ -69,7 +72,8 @@
 
     --border: var(--text-color-dark);
     --input: var(--text-color-dark);
-    --ring: 240 4.9% 83.9%;
+    --ring: var(--ring-background);
+    /* --visible: var(--visible-background); */
   }
 }
 

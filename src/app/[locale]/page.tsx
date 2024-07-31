@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import CursorAura from '@/components/domain/CursorAura';
+// import CursorAura from '@/components/domain/CursorAura';
 import SocialLinks from '@/components/domain/SocialLinks';
 
 import initTranslations from '../i18n';
@@ -54,7 +54,7 @@ export default async function Home({
             </div>
           </div>
         </section>
-        <CursorAura />
+        {/* <CursorAura /> */}
       </main>
     </>
   );

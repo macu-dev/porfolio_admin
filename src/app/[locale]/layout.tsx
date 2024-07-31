@@ -5,6 +5,7 @@ import { dir } from 'i18next';
 
 import Header from '@/components/ui/header';
 import TranslationsProvider from '@/components/domain/TranslationProvider';
+import LogoPage from '@/components/domain/LogoPage';
 
 import i18nConfig from '../../../i18nConfig';
 import { nunito_sans } from '../fonts';
@@ -28,6 +29,20 @@ export default async function RootLayout({
 }) {
   const i18nNamespaces = ['login'];
   const { resources } = await initTranslations(locale, i18nNamespaces);
+  const links = [
+    {
+      name: 'Sobre mi',
+      url: '/',
+    },
+    {
+      name: 'Carrera',
+      url: '/career',
+    },
+    {
+      name: 'Proyectos',
+      url: '/proyects',
+    },
+  ];
 
   return (
     <html className="dark h-screen" dir={dir(locale)} lang={locale}>
@@ -37,7 +52,7 @@ export default async function RootLayout({
         resources={resources}
       >
         <body className={nunito_sans.className + ' h-full'}>
-          <Header logo={<p>Macu</p>} />
+          <Header links={links} logo={<LogoPage />} />
           <div className="flex h-[calc(100vh-54px)] flex-col items-center justify-evenly">
             {children}
             <footer>hola</footer>
