@@ -10,22 +10,22 @@ import {
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from '../ui/select';
 
+import ArgFlag from './ArgFlag';
+import UsaFlag from './UsaFlag';
+
 export default function LanguageChanger() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
+
   const currentLocale = i18n.language;
+
   const router = useRouter();
   const currentPathname = usePathname();
 
-  //   onValueChange={(value) => onChange({ target: { name, value } })}
-
   const handleChange = (newLocale: string) => {
-    // const newLocale = event.target.value;
-
     // set cookie for next-i18n-router
     const days = 30;
     const date = new Date();
@@ -48,19 +48,18 @@ export default function LanguageChanger() {
   };
 
   return (
-    // <select onChange={handleChange} value={currentLocale}>
-    //   <option value="en">English</option>
-    //   <option value="es">Es</option>
-    // </select>
     <Select onValueChange={handleChange} value={currentLocale}>
       <SelectTrigger>
-        <SelectValue placeholder="Select a fruit" />
+        <SelectValue placeholder={t('languagePlaceholder')} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="es">🇦🇷</SelectItem>
-          <SelectItem value="en">🇺🇸</SelectItem>
+          <SelectItem value="es">
+            <ArgFlag />
+          </SelectItem>
+          <SelectItem value="en">
+            <UsaFlag />
+          </SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

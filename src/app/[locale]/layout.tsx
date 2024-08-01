@@ -27,7 +27,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const i18nNamespaces = ['login'];
+  const i18nNamespaces = ['commons', 'about'];
   const { resources } = await initTranslations(locale, i18nNamespaces);
   const links = [
     {
