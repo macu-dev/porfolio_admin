@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 // import CursorAura from '@/components/domain/CursorAura';
 import SocialLinks from '@/components/domain/SocialLinks';
+import { fetchData } from '@/services/api';
 
 import initTranslations from '../i18n';
 
@@ -11,6 +12,10 @@ export default async function Home({
   params: { locale: string };
 }) {
   const { t } = await initTranslations(locale, ['about']);
+  const data = await fetchData(`/api/about-me-page?locale=${locale}`);
+
+  // eslint-disable-next-line no-console
+  console.log(data);
 
   return (
     <>

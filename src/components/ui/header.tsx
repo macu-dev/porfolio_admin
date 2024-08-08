@@ -39,7 +39,7 @@ const Header = ({ logo, links, homeLink = '/' }: HeaderProps) => {
           <Link className="flex items-center" href={homeLink}>
             {logo}
           </Link>
-          <div className="flex items-center lg:order-2">
+          <div className="flex items-center lg:order-2 lg:hidden">
             <button
               aria-controls="mobile-menu-2"
               aria-expanded={menuOpen}
@@ -66,7 +66,9 @@ const Header = ({ logo, links, homeLink = '/' }: HeaderProps) => {
                   {link.name}
                 </Link>
               ))}
+
               <LanguageChanger />
+
               {/* <li>
                 <a
                   aria-current="page"

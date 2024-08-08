@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 import { dir } from 'i18next';
+import React, { Suspense } from 'react';
 
 import Header from '@/components/ui/header';
 import TranslationsProvider from '@/components/domain/TranslationProvider';
@@ -52,11 +53,13 @@ export default async function RootLayout({
         resources={resources}
       >
         <body className={nunito_sans.className + ' h-full'}>
-          <Header links={links} logo={<LogoPage />} />
-          <div className="flex h-[calc(100vh-54px)] flex-col items-center justify-evenly">
-            {children}
-            <footer>hola</footer>
-          </div>
+          <Suspense fallback={<p>Loading</p>}>
+            <Header links={links} logo={<LogoPage />} />
+            <div className="flex h-[calc(100vh-54px)] flex-col items-center justify-evenly">
+              {children}
+              <footer>hola</footer>
+            </div>
+          </Suspense>
         </body>
       </TranslationsProvider>
     </html>
