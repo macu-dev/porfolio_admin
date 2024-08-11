@@ -32,7 +32,7 @@ const Header = ({ logo, links, homeLink = '/' }: HeaderProps) => {
 
   return (
     <header
-      className={`sticky top-0 bg-transparent  backdrop-blur-sm transition duration-200 ease-in-out ${hasScrolled ? 'border-b border-stone-800' : 'border-transparent'}`}
+      className={`backdrop-blur-sm' sticky top-0 bg-transparent transition duration-200 ease-in-out ${hasScrolled ? 'border-b border-stone-800' : 'border-transparent'}`}
     >
       <nav className="border-gray-200 px-8 py-3 lg:px-6">
         <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">

@@ -6,7 +6,7 @@ const LogoPage = () => {
   return (
     <>
       <Cafe />
-      <p>Macu</p>
+      <p>macu-dev</p>
     </>
   );
 };

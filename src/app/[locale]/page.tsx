@@ -3,20 +3,18 @@ import Image from 'next/image';
 // import CursorAura from '@/components/domain/CursorAura';
 import SocialLinks from '@/components/domain/SocialLinks';
 import { serviceApi } from '@/services/api';
-
-import initTranslations from '../i18n';
+import BlocksRendererClient from '@/components/domain/BlocksRendererClient';
 
 export default async function Home({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
-  const { t } = await initTranslations(locale, ['about']);
   const data = await serviceApi.getAboutMe({ locale });
 
   return (
     <>
-      <main className="container mx-auto bg-transparent py-2">
+      <main className="container mx-auto bg-transparent pt-2">
         <section className="h-full px-0 lg:px-8">
           <div className="flex h-full flex-col items-center  justify-evenly max-[1024px]:justify-center sm:px-8  lg:flex-row">
             <div className="animate-slide-up-text max-[1023px]:order-2 lg:max-w-screen-sm">
@@ -29,13 +27,10 @@ export default async function Home({
               <h2 className="mt-3 text-[1.5rem] font-semibold min-[768px]:text-[2rem] lg:text-2xl">
                 {data.subtitle}
               </h2>
-              <p className="my-6 leading-[1.8] text-stone-300 max-[1024px]:my-3  max-[1024px]:text-[1.1rem] min-[768px]:text-[1.6rem] lg:max-w-xl lg:text-lg">
-                {t('text')}
-              </p>
-
+              <BlocksRendererClient content={data.description} />
               <SocialLinks />
             </div>
-            <div className="animate-open-scale-up-fade max-[1023px]:order-1">
+            <div className="relative z-0 animate-open-scale-up-fade max-[1023px]:order-1">
               <Image
                 alt=""
                 className="max-[400px]:h-[200px] max-[400px]:w-[100%]"

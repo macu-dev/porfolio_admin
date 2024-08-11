@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { BlocksContent } from '@strapi/blocks-react-renderer';
+
 import { flattenAttributes, getStrapiURL } from '@/lib/utils';
 
 const baseUrl = getStrapiURL();
@@ -11,7 +13,7 @@ interface AboutMeArgs {
 interface AboutMeData {
   title: string;
   pretitle: string;
-  description: { type: string; children: { type: string; text: string }[] }[];
+  description: BlocksContent;
   subtitle: string | null;
 }
 
