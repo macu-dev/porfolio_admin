@@ -22,11 +22,11 @@ const config = {
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
-        background: 'hsl(var(--background))',
+        background: 'var(--background-primary)',
         foreground: 'hsl(var(--foreground))',
         primary: {
           DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          foreground: 'var(--primary-foreground)',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',

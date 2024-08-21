@@ -34,8 +34,12 @@ const TrayectoryItem = ({
         </div>
       </div>
 
-      <Button asChild className="mt-4 p-2 shadow" size={null} variant="default">
-        <p className="font-medium">View more</p>
+      <Button
+        className="mt-4 p-2 font-medium shadow"
+        size={null}
+        variant="default"
+      >
+        View more
       </Button>
     </>
   );

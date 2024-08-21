@@ -57,7 +57,7 @@ export default async function RootLayout({
         <body className={nunito_sans.className}>
           <Suspense fallback={<Loading />}>
             <Header links={links} logo={<LogoPage />} />
-            <div className="flex  flex-col items-center justify-evenly">
+            <div className="flex h-[calc(100vh_-_72px)] flex-col items-center justify-evenly">
               {children}
               <footer className="p-5 pt-10 opacity-50">
                 <p>

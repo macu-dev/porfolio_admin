@@ -24,10 +24,10 @@ export default async function Home({
               <h1 className="inline bg-gradient-text bg-clip-text text-[2.5rem] font-bold leading-[1.2] tracking-tight text-transparent min-[768px]:text-[4rem] lg:text-7xl">
                 {data.title}
               </h1>
-              <h2 className="mt-3 text-[1.5rem] font-semibold min-[768px]:text-[2rem] lg:text-2xl">
-                {data.subtitle}
-              </h2>
-              <BlocksRendererClient content={data.description} />
+              <h2 className="h2-pretitle">{data.subtitle}</h2>
+
+              <BlocksRendererClient content={data?.description} />
+
               <SocialLinks />
             </div>
             <div className="relative z-0 animate-open-scale-up-fade max-[1023px]:order-1">

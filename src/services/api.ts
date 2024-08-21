@@ -6,23 +6,41 @@ import { flattenAttributes, getStrapiURL } from '@/lib/utils';
 
 const baseUrl = getStrapiURL();
 
-interface AboutMeArgs {
+// interface AboutMeArgs {
+//   locale: string;
+// }
+
+interface ApiArgsCommons {
   locale: string;
 }
 
-interface AboutMeData {
+interface DataStructureCommons {
   title: string;
   pretitle: string;
   description: BlocksContent;
   subtitle: string | null;
 }
 
+interface Trayectory {
+  id: number;
+  company: string;
+  job: string;
+  durationStart: string;
+  durationEnd: string;
+  description: BlocksContent;
+}
+interface Trayectories {
+  data: Trayectory[];
+}
+
 type ApiResponses = {
-  AboutMe: AboutMeData;
+  AboutMe: DataStructureCommons;
+  Trayectory: Trayectories;
 };
 
 type ApiArgs = {
-  AboutMe: AboutMeArgs;
+  AboutMe: ApiArgsCommons;
+  Trayectory: ApiArgsCommons;
 };
 
 type ServiceApi = {
@@ -44,7 +62,9 @@ export async function fetchData<T>(url: string): Promise<T> {
 }
 
 const apiUrls: { [K in keyof ApiArgs]: (args: ApiArgs[K]) => string } = {
-  AboutMe: ({ locale }: AboutMeArgs) => `/api/about-me-page?locale=${locale}`,
+  AboutMe: ({ locale }: ApiArgsCommons) => `/api/about-me?locale=${locale}`,
+  Trayectory: ({ locale }: ApiArgsCommons) =>
+    `/api/trayectories?locale=${locale}`,
 };
 
 const initServiceApi = (): ServiceApi => {

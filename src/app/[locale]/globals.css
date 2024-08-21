@@ -9,7 +9,7 @@
   --background-landing-gray: #111111;
   --background-accent: #5c5c5ccc;
   --ring-background: #adacac;
-  /* --visible-background: #adacac; */
+  --default-text: #ffff /* --visible-background: #adacac; */;
 }
 
 @layer base {
@@ -91,6 +91,18 @@
       var(--background-landing-gray)
     );
   }
+
+  .background-primary {
+    background: var(--background-primary);
+  }
+
+  .h2-pretitle {
+    @apply mt-3 text-[1.5rem] font-semibold min-[768px]:text-[2rem] lg:text-2xl;
+  }
+
+  .text {
+    @apply my-6 leading-[1.8] text-stone-300 max-[1024px]:my-3  max-[1024px]:text-[1.1rem] min-[768px]:text-[1.6rem] lg:max-w-xl lg:text-lg;
+  }
 }
 
 @layer base {
@@ -105,5 +117,6 @@
   html {
     background: #00000000;
     color-scheme: dark;
+    min-height: 100vh;
   }
 }
