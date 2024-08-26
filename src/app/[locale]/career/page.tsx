@@ -1,10 +1,12 @@
 import TrayectoryItem from '@/components/domain/TrayectoryItem';
 import { serviceApi } from '@/services/api';
+import { LocaleKey } from '@/app/i18n';
+import { formattedDate } from '@/app/date';
 
 const Career = async ({
   params: { locale },
 }: {
-  params: { locale: string };
+  params: { locale: LocaleKey };
 }) => {
   const trayectory = await serviceApi.getTrayectory({ locale });
 
@@ -19,7 +21,7 @@ const Career = async ({
             <TrayectoryItem
               company={item.company}
               description="dsds"
-              jobDuration={item.durationStart}
+              jobDuration={formattedDate(new Date(item.durationStart), locale)}
               jobTitle="title"
             />
           </li>

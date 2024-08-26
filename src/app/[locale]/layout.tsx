@@ -10,7 +10,7 @@ import LogoPage from '@/components/domain/LogoPage';
 
 import i18nConfig from '../../../i18nConfig';
 import { nunito_sans } from '../fonts';
-import initTranslations from '../i18n';
+import initTranslations, { LocaleKey } from '../i18n';
 
 import Loading from './loading';
 
@@ -28,7 +28,7 @@ export default async function RootLayout({
   params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: LocaleKey };
 }) {
   const i18nNamespaces = ['commons', 'about'];
   const { resources } = await initTranslations(locale, i18nNamespaces);

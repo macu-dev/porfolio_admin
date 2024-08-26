@@ -4,7 +4,7 @@ import { I18nextProvider } from 'react-i18next';
 import { ReactNode } from 'react';
 import { Resource, createInstance } from 'i18next';
 
-import initTranslations from '@/app/i18n';
+import initTranslations, { LocaleKey } from '@/app/i18n';
 
 export default function TranslationsProvider({
   children,
@@ -13,7 +13,7 @@ export default function TranslationsProvider({
   resources,
 }: {
   children: ReactNode;
-  locale: string;
+  locale: LocaleKey;
   namespaces: string[];
   resources: Resource;
 }) {
