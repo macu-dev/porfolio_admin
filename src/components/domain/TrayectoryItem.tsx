@@ -1,10 +1,15 @@
-import { Button } from '../ui/button';
+import { BlocksContent } from '@strapi/blocks-react-renderer';
+
+import { buttonVariants } from '../ui/button';
+
+import BlocksRendererClient from './BlocksRendererClient';
 
 interface TrayectoryItemProps {
   company: string;
   jobTitle: string;
   jobDuration: string;
-  description: string;
+  description: BlocksContent;
+  link?: string;
 }
 
 const TrayectoryItem = ({
@@ -12,35 +17,42 @@ const TrayectoryItem = ({
   jobTitle,
   jobDuration,
   description,
+  link,
 }: TrayectoryItemProps) => {
   return (
     <>
       <div className="absolute -start-[6.5px] mt-[8.5px] size-3 rounded-full border border-white bg-neutral-400 dark:border-black dark:bg-neutral-600" />
-      <div className="mb-4 flex items-center gap-x-2">
+      <div>
         <h3 className="text-xl font-bold text-neutral-900 dark:text-neutral-100">
-          {company}
-        </h3>
-      </div>
-
-      <div className="mb-4">
-        <h4 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
           {jobTitle}
-        </h4>
-        <time className="font-mono text-sm leading-none text-neutral-800 dark:text-neutral-200">
+        </h3>
+        <div className="mb-1 flex items-center gap-x-2">
+          <h4 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">
+            {company}
+          </h4>
+        </div>
+
+        <time className="font-mono text-xs leading-none text-neutral-800 dark:text-neutral-200">
           {jobDuration}
         </time>
-        <div className="mt-1 text-pretty font-mono text-neutral-600 dark:text-neutral-400">
-          {description}
+        <div>
+          <BlocksRendererClient content={description} />
         </div>
       </div>
-
-      <Button
-        className="mt-4 p-2 font-medium shadow"
-        size={null}
-        variant="default"
-      >
-        View more
-      </Button>
+      {link && (
+        <a
+          className={buttonVariants({
+            variant: 'default',
+            size: null,
+            className: 'mt-4 p-2 font-medium shadow',
+          })}
+          href={link}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          View more
+        </a>
+      )}
     </>
   );
 };
