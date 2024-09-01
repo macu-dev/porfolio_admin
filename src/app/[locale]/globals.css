@@ -8,7 +8,8 @@
   --background-landing-dark: #000000;
   --background-landing-gray: #111111;
   --background-accent: #5c5c5ccc;
-  --ring-background: #adacac;
+  --border: color(display-p3 0.878 0.929 0.996/0.145);
+  --ring-background: color(display-p3 0.949 0.969 0.996/0.708);
   --default-text: #ffff /* --visible-background: #adacac; */;
 }
 
@@ -70,7 +71,7 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: var(--text-color-dark);
+    --border: var(--border);
     --input: var(--text-color-dark);
     --ring: var(--ring-background);
     /* --visible: var(--visible-background); */
@@ -90,6 +91,14 @@
       var(--background-landing-dark),
       var(--background-landing-gray)
     );
+  }
+
+  .background-resend {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.12),
+        rgba(255, 255, 255, 0)
+      )
+      border-box border-box;
   }
 
   .background-primary {

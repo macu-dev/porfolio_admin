@@ -67,6 +67,8 @@ const config = {
       backgroundImage: {
         'gradient-text':
           'linear-gradient(to right, #64ea8f, #ebcf51, #9e4bd9, #23c2fb, #49eb7c)',
+        'gradient-dark':
+          'linear-gradient(rgb(80 80 80 / 80%) 0%, rgb(0 0 0) 70%)',
       },
       keyframes: {
         'accordion-down': {
@@ -91,11 +93,17 @@ const config = {
             transform: 'scale(1) translateY(0)',
           },
         },
+        pulse: {
+          '50%': {
+            opacity: '.5',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'slide-up-text': 'slide-up-text 1s ease-in-out',
+        pulse: 'pulse 3s cubic-bezier(.4,0,.6,1) infinite',
         'open-scale-up-fade': 'open-scale-up-fade 1.5s ease-in-out',
       },
     },

@@ -21,7 +21,7 @@ export default async function Home({
               <p className="text-default-500 my-2 block w-full max-w-full text-lg font-normal md:w-1/2 min-[768px]:text-[2.1rem] lg:text-xl">
                 {data.pretitle}
               </p>
-              <h1 className="inline bg-gradient-text bg-clip-text text-[2.5rem] font-bold leading-[1.2] tracking-tight text-transparent min-[768px]:text-[4rem] lg:text-7xl">
+              <h1 className="inline bg-gradient-text bg-clip-text text-[2.5rem] font-bold leading-[1.2] tracking-tight text-transparent min-[768px]:text-[2.5rem] lg:text-6xl">
                 {data.title}
               </h1>
               <h2 className="h2-pretitle">{data.subtitle}</h2>
