@@ -58,16 +58,15 @@ const Header = ({ logo, links, homeLink = '/' }: HeaderProps) => {
           >
             <ul className="mt-4 flex flex-col font-medium lg:mt-0 lg:flex-row lg:space-x-8">
               {links?.map((link) => (
-                <Link
-                  className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
-                  href={link.url}
-                  key={link.name}
-                >
-                  {link.name}
-                </Link>
+                <li key={link.name}>
+                  <Link
+                    className="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-white"
+                    href={link.url}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
               ))}
-
-              <LanguageChanger />
 
               {/* <li>
                 <a
@@ -119,6 +118,7 @@ const Header = ({ logo, links, homeLink = '/' }: HeaderProps) => {
                 </a>
               </li> */}
             </ul>
+            <LanguageChanger />
           </div>
         </div>
       </nav>

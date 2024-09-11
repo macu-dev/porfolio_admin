@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-// import CursorAura from '@/components/domain/CursorAura';
 import SocialLinks from '@/components/domain/SocialLinks';
 import { serviceApi } from '@/services/api';
 import BlocksRendererClient from '@/components/domain/BlocksRendererClient';
@@ -28,7 +27,7 @@ export default async function Home({
 
               <BlocksRendererClient content={data?.description} />
 
-              <SocialLinks />
+              <SocialLinks socialLinks={data.social_media} />
             </div>
             <div className="relative z-0 animate-open-scale-up-fade max-[1023px]:order-1">
               <Image
@@ -44,7 +43,6 @@ export default async function Home({
             </div>
           </div>
         </section>
-        {/* <CursorAura /> */}
       </main>
     </>
   );

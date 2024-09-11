@@ -19,6 +19,13 @@ interface DataStructureCommons {
   pretitle: string;
   description: BlocksContent;
   subtitle: string | null;
+  social_media: {
+    x: string | null;
+    instagram: string | null;
+    linkedin: string | null;
+    github: string | null;
+    email: string | null;
+  };
 }
 
 interface Trayectory {
@@ -62,7 +69,8 @@ export async function fetchData<T>(url: string): Promise<T> {
 }
 
 const apiUrls: { [K in keyof ApiArgs]: (args: ApiArgs[K]) => string } = {
-  AboutMe: ({ locale }: ApiArgsCommons) => `/api/about-me?locale=${locale}`,
+  AboutMe: ({ locale }: ApiArgsCommons) =>
+    `/api/about-me?locale=${locale}&populate=social_media`,
   Trayectory: ({ locale }: ApiArgsCommons) =>
     `/api/trayectories?locale=${locale}`,
 };

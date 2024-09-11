@@ -6,7 +6,7 @@ import initTranslations, { LocaleKey } from '@/app/i18n';
 import { formattedDate } from '@/app/date';
 import { Card } from '@/components/ui/card';
 
-const Career = async ({
+const Trayectory = async ({
   params: { locale },
 }: {
   params: { locale: LocaleKey };
@@ -47,4 +47,4 @@ const Career = async ({
   );
 };
 
-export default Career;
+export default Trayectory;

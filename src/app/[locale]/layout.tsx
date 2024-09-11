@@ -31,18 +31,18 @@ export default async function RootLayout({
   params: { locale: LocaleKey };
 }) {
   const i18nNamespaces = ['commons', 'about'];
-  const { resources } = await initTranslations(locale, i18nNamespaces);
+  const { resources, t } = await initTranslations(locale, i18nNamespaces);
   const links = [
     {
-      name: 'Sobre mi',
+      name: t('aboutMe'),
       url: '/',
     },
     {
-      name: 'Carrera',
-      url: '/career',
+      name: t('trayectory'),
+      url: '/trayectory',
     },
     {
-      name: 'Proyectos',
+      name: t('proyects'),
       url: '/proyects',
     },
   ];
