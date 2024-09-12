@@ -1,4 +1,5 @@
 import { BackpackIcon } from '@radix-ui/react-icons';
+import Image from 'next/image';
 
 import TrayectoryItem from '@/components/domain/TrayectoryItem';
 import { serviceApi } from '@/services/api';
@@ -16,6 +17,13 @@ const Trayectory = async ({
 
   return (
     <section className="px-2">
+      <Image
+        alt=""
+        className="m-auto"
+        height={250}
+        src="/trayectory.gif"
+        width={250}
+      />
       <h2 className="flex items-center justify-center gap-x-4 text-balance bg-gradient-text bg-clip-text py-6 text-5xl font-bold text-transparent">
         {t('title')}
       </h2>
