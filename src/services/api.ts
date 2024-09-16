@@ -58,7 +58,9 @@ type ServiceApi = {
 
 export async function fetchData<T>(url: string): Promise<T> {
   try {
-    const response = await fetch(`${baseUrl}${url}`);
+    const response = await fetch(`${baseUrl}${url}`, {
+      next: { revalidate: 60 },
+    });
     const data = await response.json();
 
     return flattenAttributes(data) as T;

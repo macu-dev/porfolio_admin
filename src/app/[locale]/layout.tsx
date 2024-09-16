@@ -13,6 +13,7 @@ import { nunito_sans } from '../fonts';
 import initTranslations, { LocaleKey } from '../i18n';
 
 import Loading from './loading';
+import 'swiper/swiper-bundle.css';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
