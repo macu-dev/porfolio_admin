@@ -7,6 +7,7 @@ import React, { Suspense } from 'react';
 import Header from '@/components/ui/header';
 import TranslationsProvider from '@/components/domain/TranslationProvider';
 import LogoPage from '@/components/domain/LogoPage';
+import LayoutWrapper from '@/components/domain/LayoutWrapper';
 
 import i18nConfig from '../../../i18nConfig';
 import { nunito_sans } from '../fonts';
@@ -58,7 +59,7 @@ export default async function RootLayout({
         <body className={nunito_sans.className}>
           <Suspense fallback={<Loading />}>
             <Header links={links} logo={<LogoPage />} />
-            <div className="flex h-[calc(100vh_-_72px)] flex-col items-center justify-evenly">
+            <LayoutWrapper>
               {children}
               <footer className="p-5 pt-10 opacity-50">
                 <p>
@@ -71,7 +72,7 @@ export default async function RootLayout({
                   . All rights reserved.
                 </p>
               </footer>
-            </div>
+            </LayoutWrapper>
           </Suspense>
         </body>
       </TranslationsProvider>
