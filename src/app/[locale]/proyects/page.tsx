@@ -4,13 +4,18 @@ import Image from 'next/image';
 import initTranslations, { LocaleKey } from '@/app/i18n';
 import { Card } from '@/components/ui/card';
 import ProyectsCarousel from '@/components/domain/ProyectsCarousel';
+import { serviceApi } from '@/services/api';
 
 const Proyects = async ({
   params: { locale },
 }: {
   params: { locale: LocaleKey };
 }) => {
-  const { t } = await initTranslations(locale, ['trayectory']);
+  const { t } = await initTranslations(locale, ['proyects']);
+  const proyects = await serviceApi.getProyects({ locale });
+
+  // eslint-disable-next-line no-console
+  console.log(proyects.data);
 
   return (
     <>
@@ -25,7 +30,7 @@ const Proyects = async ({
         <h2 className="flex items-center justify-center gap-x-4 text-balance bg-gradient-text bg-clip-text pb-6 text-5xl font-bold text-transparent">
           {t('title')}
         </h2>
-        <Card className="mr-auto inline-flex">
+        <Card className="mr-auto inline-flex pt-4">
           <BackpackIcon className="animate-pulse text-[#6ac0ff]" />
         </Card>
         <ProyectsCarousel />

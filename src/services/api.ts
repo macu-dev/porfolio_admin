@@ -28,6 +28,33 @@ interface DataStructureCommons {
   };
 }
 
+interface Tecnology {
+  id: number;
+  name: string;
+  color: string;
+  icon: {
+    id: string;
+    name: string;
+    width: number;
+    height: number;
+    url: string;
+  };
+}
+
+interface Proyect extends Omit<DataStructureCommons, 'social_media'> {
+  cover: {
+    id: number;
+    url: string;
+  };
+  tecnologies: {
+    data: Tecnology[];
+  };
+}
+
+interface Proyects {
+  data: Proyect[];
+}
+
 interface Trayectory {
   id: number;
   company: string;
@@ -43,11 +70,13 @@ interface Trayectories {
 type ApiResponses = {
   AboutMe: DataStructureCommons;
   Trayectory: Trayectories;
+  Proyects: Proyects;
 };
 
 type ApiArgs = {
   AboutMe: ApiArgsCommons;
   Trayectory: ApiArgsCommons;
+  Proyects: ApiArgsCommons;
 };
 
 type ServiceApi = {
@@ -75,6 +104,9 @@ const apiUrls: { [K in keyof ApiArgs]: (args: ApiArgs[K]) => string } = {
     `/api/about-me?locale=${locale}&populate=social_media`,
   Trayectory: ({ locale }: ApiArgsCommons) =>
     `/api/trayectories?locale=${locale}`,
+  Proyects: ({ locale }: ApiArgsCommons) =>
+    `/api/proyects?locale=${locale}&populate[tecnologies][populate][icon]
+  [fields][0]=*&populate[cover][fields][0]=url`,
 };
 
 const initServiceApi = (): ServiceApi => {
