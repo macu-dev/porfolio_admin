@@ -33,12 +33,9 @@ export default async function Home({
               <Image
                 alt=""
                 className="max-[400px]:h-[200px] max-[400px]:w-[100%]"
-                height="500"
+                height="450"
                 src="/emoji.png"
-                style={{
-                  maskImage: 'linear-gradient(#bbb2b2 64%, transparent 100%)',
-                }}
-                width="400"
+                width="500"
               />
             </div>
           </div>

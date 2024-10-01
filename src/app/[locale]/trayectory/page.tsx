@@ -20,9 +20,9 @@ const Trayectory = async ({
       <Image
         alt=""
         className="m-auto"
-        height={250}
-        src="/trayectory.gif"
-        width={250}
+        height={350}
+        src="/trayectory.png"
+        width={350}
       />
       <h2 className="flex items-center justify-center gap-x-4 text-balance bg-gradient-text bg-clip-text py-6 text-5xl font-bold text-transparent">
         {t('title')}

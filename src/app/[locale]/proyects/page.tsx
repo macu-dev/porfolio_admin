@@ -1,8 +1,6 @@
-import { BackpackIcon } from '@radix-ui/react-icons';
 import Image from 'next/image';
 
 import initTranslations, { LocaleKey } from '@/app/i18n';
-import { Card } from '@/components/ui/card';
 import ProyectsCarousel from '@/components/domain/ProyectsCarousel';
 import { serviceApi } from '@/services/api';
 
@@ -23,17 +21,14 @@ const Proyects = async ({
         <Image
           alt=""
           className="m-auto"
-          height={250}
-          src="/computer.gif"
-          width={200}
+          height={350}
+          src="/proyects.png"
+          width={350}
         />
         <h2 className="flex items-center justify-center gap-x-4 text-balance bg-gradient-text bg-clip-text pb-6 text-5xl font-bold text-transparent">
           {t('title')}
         </h2>
-        <Card className="mr-auto inline-flex pt-4">
-          <BackpackIcon className="animate-pulse text-[#6ac0ff]" />
-        </Card>
-        <ProyectsCarousel />
+        <ProyectsCarousel proyects={proyects.data} />
       </section>
     </>
   );

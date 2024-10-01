@@ -41,7 +41,8 @@ interface Tecnology {
   };
 }
 
-interface Proyect extends Omit<DataStructureCommons, 'social_media'> {
+export interface Proyect extends Omit<DataStructureCommons, 'social_media'> {
+  id: number;
   cover: {
     id: number;
     url: string;
