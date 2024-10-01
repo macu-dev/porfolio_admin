@@ -15,15 +15,16 @@ import BlocksRendererClient from './BlocksRendererClient';
 interface CardProyectProps {
   title: string;
   description?: BlocksContent;
+  img: string;
 }
 
-const CardProyect = ({ title, description }: CardProyectProps) => {
+const CardProyect = ({ title, description, img }: CardProyectProps) => {
   return (
     <Card className="w-[100%]">
       <Image
         alt=""
         height={100}
-        src="https://picsum.photos/200/"
+        src={img}
         style={{ objectFit: 'cover', width: '100%', height: '250px' }}
         width={200}
       />
