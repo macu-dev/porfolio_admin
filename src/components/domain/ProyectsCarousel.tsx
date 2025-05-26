@@ -17,29 +17,46 @@ const ProyectsCarousel = ({ proyects }: { proyects: Proyect[] }) => {
   //usar render dinamic
 
   useEffect(() => {
-    setIsMounted(true); // Solo se monta en el cliente
+    setIsMounted(true);
   }, []);
 
   if (!isMounted) return null;
 
   return (
     <>
-      <div className="w-100">
+      <div className="w-100 carousel-swipper px-9 pt-[3rem]">
         <CarouselSwipper
           autoplay={{
-            delay: 2500,
+            delay: 7000,
             disableOnInteraction: false,
           }}
-          className="mySwiper"
+          breakpoints={{
+            600: {
+              slidesPerView: 1,
+              spaceBetween: 5,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          }}
+          className="swiper-proyect"
+          effect={'fade'}
+          loop
           modules={[FreeMode, Autoplay]}
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={30}
         >
           {proyects.map((proyect) => (
             <SwiperSlide key={proyect.id}>
               <CardProyect
                 description={proyect.description}
-                img={`${process.env.NEXT_PUBLIC_STRAPI_URL}${proyect.cover.url}`}
+                image={proyect.cover.url}
+                tecnologies={proyect.tecnologies}
                 title={proyect.title}
               />
             </SwiperSlide>

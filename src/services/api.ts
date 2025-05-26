@@ -28,7 +28,7 @@ interface DataStructureCommons {
   };
 }
 
-interface Tecnology {
+export interface Tecnology {
   id: number;
   name: string;
   color: string;

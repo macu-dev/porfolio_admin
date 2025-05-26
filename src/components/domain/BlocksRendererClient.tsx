@@ -7,7 +7,7 @@ const BlocksRendererClient = ({ content }: { content: BlocksContent }) => {
     <BlocksRenderer
       blocks={{
         paragraph: ({ children }) => (
-          <p className="text text-ring">{children}</p>
+          <p className="text text-md  my-1 text-ring">{children}</p>
         ),
         list: ({ children }) => (
           <ul className="mt-2 list-disc pl-[16px]">{children}</ul>

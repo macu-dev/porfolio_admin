@@ -1,0 +1,40 @@
+.swiper-proyect {
+  .swiper-button-prev,
+  .swiper-button-next {
+    padding: 2rem;
+    color: white;
+  }
+
+  &::after {
+    content: '';
+    display: 'block';
+    background: rgb(0 0 0);
+    filter: blur(80px);
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 45%;
+    width: 15%;
+    height: 17%;
+  }
+
+  &::before {
+    content: '';
+    display: 'block';
+    background: rgb(0, 0, 0);
+    filter: blur(80px);
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    top: 45%;
+    width: 15%;
+    height: 17%;
+  }
+}
+
+.carousel-swipper {
+  position: relative;
+}
+
+/* .carousel-swipper::after {
+} */

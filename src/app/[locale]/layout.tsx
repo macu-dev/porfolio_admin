@@ -47,6 +47,14 @@ export default async function RootLayout({
       name: t('proyects'),
       url: '/proyects',
     },
+    {
+      name: t('blog'),
+      url: '/proyects',
+    },
+    {
+      name: t('recipes'),
+      url: '/proyects',
+    },
   ];
 
   return (

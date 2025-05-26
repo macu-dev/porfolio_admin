@@ -1,6 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '../../components/domain/ProyectCarousel.css';
 
 :root {
   --background-dark: 329 84% 4%;
@@ -91,6 +92,21 @@
       var(--background-landing-dark),
       var(--background-landing-gray)
     );
+  }
+
+  .rainbowBorder {
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #02fcef70, #ffb52b70 50%, #a02bfe70);
+    line-height: 0;
+    transition: transform 0.2s ease-in-out;
+    transform-origin: 0 100%;
+    height: 40px;
+  }
+
+  .rainbowBorder > span {
+    height: calc(40px - 2px);
+    border-radius: 5px;
+    width: calc(100% - 2px);
   }
 
   .background-resend {

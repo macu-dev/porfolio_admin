@@ -1,45 +1,83 @@
 import { BlocksContent } from '@strapi/blocks-react-renderer';
 import Image from 'next/image';
+import { ExternalLinkIcon, GitHubLogoIcon } from '@radix-ui/react-icons';
+
+import { Tecnology } from '@/services/api';
 
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from '../ui/card';
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
 
 import BlocksRendererClient from './BlocksRendererClient';
 
 interface CardProyectProps {
   title: string;
   description?: BlocksContent;
-  img: string;
+  image?: string;
+  tecnologies: {
+    data: Tecnology[];
+  };
 }
 
-const CardProyect = ({ title, description, img }: CardProyectProps) => {
+const CardProyect = ({
+  title,
+  description,
+  tecnologies,
+  image,
+}: CardProyectProps) => {
   return (
     <Card className="w-[100%]">
-      <Image
-        alt=""
-        height={100}
-        src={img}
-        style={{ objectFit: 'cover', width: '100%', height: '250px' }}
-        width={200}
-      />
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        {image && (
+          <div className="relative h-36 w-full overflow-hidden rounded-t-lg">
+            <Image
+              alt=""
+              className="object-cover"
+              fill // ocupa todo el contenedor
+              priority
+              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image}`}
+            />
+          </div>
+        )}
+
+        <CardTitle className="p-6">{title}</CardTitle>
         {description && (
-          <CardDescription>
+          <div className="p-6 pt-2">
             <BlocksRendererClient content={description} />
-          </CardDescription>
+          </div>
         )}
       </CardHeader>
-      <CardContent>
-        <p>sds</p>
+      <CardContent className="mt-0">
+        {tecnologies.data.map((tecnology) => (
+          <Badge className="mx-1" key={tecnology.id} variant="secondary">
+            <Image
+              alt={tecnology.name}
+              height={25}
+              src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${tecnology.icon.url}`}
+              width={25}
+            />
+            {tecnology.name}
+          </Badge>
+        ))}
       </CardContent>
-      <CardFooter className="flex justify-between">vee</CardFooter>
+      <CardFooter className="flex gap-3">
+        <Button className="p-0" variant="rainbow">
+          <span className="inline-flex bg-black p-2">
+            <ExternalLinkIcon />
+            Ver demo
+          </span>
+        </Button>
+        <Button>
+          <GitHubLogoIcon />
+          Ver codigo
+        </Button>
+      </CardFooter>
     </Card>
   );
 };

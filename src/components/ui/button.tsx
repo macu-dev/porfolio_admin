@@ -16,6 +16,7 @@ const buttonVariants = cva(
         rounded: 'rounded-full bg-slate-200 p-2 text-slate-700',
         outline:
           'rounded-sm border-2 border-input bg-background text-secondary-foreground transition-all hover:-translate-x-1 hover:-translate-y-1 hover:bg-accent hover:text-accent-foreground hover:shadow-3xl',
+        rainbow: 'rainbowBorder  bg-background',
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',

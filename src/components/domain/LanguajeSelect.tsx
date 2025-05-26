@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
+import dynamic from 'next/dynamic';
 
 import i18nConfig from '../../../i18nConfig';
 import {
@@ -14,8 +15,14 @@ import {
   SelectValue,
 } from '../ui/select';
 
-import ArgFlag from './ArgFlag';
-import UsaFlag from './UsaFlag';
+const ArgFlag = dynamic(() => import('./ArgFlag'), {
+  ssr: false,
+  loading: () => <div className="h-4 w-6 animate-pulse rounded bg-gray-700" />,
+});
+const UsaFlag = dynamic(() => import('./UsaFlag'), {
+  ssr: false,
+  loading: () => <div className="h-4 w-6 animate-pulse rounded bg-gray-700" />,
+});
 
 export default function LanguageChanger() {
   const { i18n, t } = useTranslation();
