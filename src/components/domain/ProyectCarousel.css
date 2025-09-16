@@ -1,4 +1,6 @@
-.swiper-proyect {
+.swiper.swiper-proyect {
+  padding-bottom: 80px;
+
   .swiper-button-prev,
   .swiper-button-next {
     padding: 2rem;
@@ -32,9 +34,10 @@
   }
 }
 
-.carousel-swipper {
-  position: relative;
-}
+span.swiper-pagination-bullet {
+  background: white;
 
-/* .carousel-swipper::after {
-} */
+  &.active {
+    background: white;
+  }
+}

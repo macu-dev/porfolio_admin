@@ -4,7 +4,7 @@ import initTranslations, { LocaleKey } from '@/app/i18n';
 import ProyectsCarousel from '@/components/domain/ProyectsCarousel';
 import { serviceApi } from '@/services/api';
 
-const Proyects = async ({
+const Posts = async ({
   params: { locale },
 }: {
   params: { locale: LocaleKey };
@@ -34,4 +34,4 @@ const Proyects = async ({
   );
 };
 
-export default Proyects;
+export default Posts;

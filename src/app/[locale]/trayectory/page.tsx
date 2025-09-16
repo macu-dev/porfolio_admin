@@ -16,7 +16,7 @@ const Trayectory = async ({
   const { t } = await initTranslations(locale, ['trayectory']);
 
   return (
-    <section className="px-2">
+    <section className="px-2 sm:w-[50cqw]">
       <Image
         alt=""
         className="m-auto"
@@ -24,11 +24,11 @@ const Trayectory = async ({
         src="/trayectory.png"
         width={350}
       />
-      <h2 className="flex items-center justify-center gap-x-4 text-balance bg-gradient-text bg-clip-text py-6 text-5xl font-bold text-transparent">
+      <h2 className="flex items-center justify-center gap-x-4 text-balance bg-gradient-text-purple bg-clip-text py-6 text-5xl font-bold text-transparent">
         {t('title')}
       </h2>
-      <Card className="mr-auto inline-flex">
-        <BackpackIcon className="animate-pulse text-[#6ac0ff]" />
+      <Card className="mr-auto inline-flex p-2">
+        <BackpackIcon className="animate-pulse text-[#ba81f7f9]" />
       </Card>
 
       <ol className="relative ml-[11.5px] flex flex-col gap-y-8 border-s border-border pt-[10px]">

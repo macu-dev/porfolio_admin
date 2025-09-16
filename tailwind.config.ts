@@ -67,6 +67,10 @@ const config = {
       backgroundImage: {
         'gradient-text':
           'linear-gradient(to right, #64ea8f, #ebcf51, #9e4bd9, #23c2fb, #49eb7c)',
+        'gradient-text-purple':
+          'linear-gradient(to bottom right,  #8f81f7, #a846e4, #ba81f7f9)',
+        'gradient-text-yellow':
+          'linear-gradient(to bottom left, #e8cf5f,#ffd209, #f7f381f9)',
         'gradient-dark':
           'linear-gradient(rgb(80 80 80 / 80%) 0%, rgb(0 0 0) 70%)',
       },

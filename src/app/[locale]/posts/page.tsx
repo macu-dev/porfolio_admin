@@ -1,10 +1,10 @@
 import Image from 'next/image';
 
 import initTranslations, { LocaleKey } from '@/app/i18n';
-import ProyectsCarousel from '@/components/domain/ProyectsCarousel';
 import { serviceApi } from '@/services/api';
+import Posts from '@/components/domain/Post';
 
-const Proyects = async ({
+const PostsPage = async ({
   params: { locale },
 }: {
   params: { locale: LocaleKey };
@@ -28,10 +28,10 @@ const Proyects = async ({
         <h2 className="flex items-center justify-center gap-x-4 text-balance bg-gradient-text-yellow bg-clip-text pb-4 text-5xl font-bold text-transparent">
           {t('title')}
         </h2>
-        <ProyectsCarousel proyects={proyects.data} />
+        <Posts />
       </section>
     </>
   );
 };
 
-export default Proyects;
+export default PostsPage;

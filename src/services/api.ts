@@ -41,6 +41,12 @@ export interface Tecnology {
   };
 }
 
+export interface Tag {
+  id: number;
+  title: string;
+  slug: string;
+}
+
 export interface Proyect extends Omit<DataStructureCommons, 'social_media'> {
   id: number;
   cover: {
@@ -130,5 +136,4 @@ const initServiceApi = (): ServiceApi => {
   return services;
 };
 
-// Exporta el servicio de API
 export const serviceApi = initServiceApi();
